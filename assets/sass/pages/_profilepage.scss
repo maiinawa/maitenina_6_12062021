@@ -1,0 +1,125 @@
+.profile-page{
+    &__id{
+        position: relative;
+        & img{
+            position:absolute;
+            border-radius: 50%;
+            width:100px;
+            height:100px;
+            right: 0;
+            box-shadow: 0px 4px 13px -8px #000000;
+        }
+        & h1{
+            color: #D3573C;
+            font-size: 2rem;
+            margin: 0;
+            font-weight: 400;
+            padding: 10px 0 0 0;
+        }
+        &__action{
+        }
+        &__detail{
+            & h2{
+                font-weight: normal;
+                font-size:1rem;
+                line-height:1rem;
+                color: $primaire;
+                margin: 3px 0;
+            }
+            & p{
+                @include text-font;
+                color:#757575;
+                margin: 8px 0;
+            }
+        }
+        &__tags{
+            justify-content: flex-start;
+            margin: 0 80PX 0 0;
+        }
+    }
+}
+.medias{
+    &__container{
+        padding: 30PX 0 0 0;
+    }
+    &__search{
+        padding: 0 0 30px;
+        & label{
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        & select{
+            @include btn-static($primaire);
+            margin: 0 15px;
+            padding: 7px 8px;
+            font-size: 0.94rem;
+        }
+    }
+    &__mosaic{
+        & article img{
+            border-radius: 5px;
+            height: 190px;
+        }
+        &__caption{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            & h3{
+                font-weight: normal;
+                font-size:1rem;
+                line-height:1rem;
+                color: $primaire;
+                margin: 3px 0;
+            }
+            & span i{
+                color: $primaire;
+            }
+        }
+    }
+}
+@media(min-width:500px){
+    .profile-page{
+        &__id{
+            display: flex;
+            justify-content: flex-start;
+            &__container{
+                background: #fafafa;
+                padding: 19px;
+                min-height: 151px;
+            }
+            & .text-content{
+            }
+            & img{
+                width:150px;
+                height:150px;
+            }
+            & h1{
+                color: #D3573C;
+                font-size: 2rem;
+                margin: 0;
+                font-weight: 400;
+                padding: 10px 0 0 0;
+            }
+            &__action{
+            }
+            &__detail{
+                & h2{
+                    font-weight: normal;
+                    font-size:1rem;
+                    line-height:1rem;
+                    color: $primaire;
+                    margin: 3px 0;
+                }
+                & p{
+                    @include text-font;
+                    color:#757575;
+                    margin: 8px 0;
+                }
+            }
+            &__tags{
+                margin: 0 180px 0 0;
+            }
+        }
+    }
+    
+}

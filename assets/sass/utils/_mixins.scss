@@ -1,0 +1,41 @@
+@mixin btn-static($color){
+    border-radius: 5px;
+    background: $color;
+    color:white;
+    width: fit-content;
+    padding: 10px 15px;
+    font-weight: 700;
+    font-size: 1.4rem;
+    width: -moz-fit-content;
+    font-size: 1.1rem;
+}
+@mixin btn-hover-focus{
+    background: $secondaire;
+    color:$secondaire-dark;
+}
+@mixin tags-static{
+    border: 0.5px solid #C4C4C4;
+    color: $primaire;
+    display: block;
+    height: fit-content;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 0 5px 4px 0;
+    font-size: 0.9rem;
+}
+@mixin tags-hover-focus{
+    border: 0.5px solid $primaire;
+    color: white;
+    background: $primaire;
+}
+@mixin heading-index{
+    line-height: 2.85rem;
+    font-weight: 400;
+}
+
+
+@mixin text-font{
+    font-size:1rem;
+    line-height:1rem;
+    font-weight: 400;
+}

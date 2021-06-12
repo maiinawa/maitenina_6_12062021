@@ -1,0 +1,149 @@
+.wrapper{
+    height: 100%;
+}
+header{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: "logo title"
+    "nav nav";
+    .banner{
+        grid-area: logo;
+    }
+    & nav{
+        grid-area: nav;
+        margin: 20px auto;
+    }
+    & h1{
+        text-align: right;
+        grid-area: title;
+        color: $primaire;
+        @include heading-index;
+        font-size: 1.2rem;
+    }
+    ul{
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        & li a{
+            color: inherit;
+        }
+    }
+}
+.photographer{
+    &__card{
+        margin: auto;
+        padding: 0 0 50PX;
+        max-width: 380px;
+        & div{
+            text-align: center;
+            margin: 10px;
+        }
+    }
+    &__id{
+        & h2{
+            color: #D3573C;
+            @include heading-index;
+            font-size: 2.25rem;
+            margin: 10px 0;
+        }
+        & img{
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 13px -8px #000000;
+            margin: auto;
+        }
+    }
+    &__detail{
+        & h3{
+            font-weight: 400;
+            font-size:1.3rem;
+            line-height:1rem;
+            color: $primaire;
+            margin: 8px 0;
+        }
+        & p:nth-child(2){
+            @include text-font;
+            color:black;
+            margin: 8px 0;
+        }
+        & p:nth-child(3){
+            @include text-font;
+            color:#757575;
+            &::after{
+                content:"€";
+            }
+        }
+    }
+    &__tags{
+
+        justify-content: center;
+
+    }
+}
+@media(min-width:600px){
+    header{
+        & h1{
+            font-size: 1.6rem;
+        }
+    }
+
+    .photographer{
+        &__list{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        &__card{
+            max-width: 300px;
+            margin:0;
+        }
+    }
+}
+
+
+@media(min-width:1000px){
+    header{
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: 60px 1fr;
+        grid-template-areas: "logo nav"
+        "title title";
+        nav{
+            // padding:0 40px;
+            margin: 0;
+        }
+        h1{
+            line-height: 1.8rem;
+            font-size: 2rem;
+        }
+    }
+    .photographer{
+        &__list{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr;
+        }
+        &__card{
+            margin: 0 auto;
+            padding: 0 0 50PX;
+            max-width: 370px;
+            & div{
+                text-align: center;
+                margin: 10px 0;
+            }
+            & img{
+                width: 200px;
+                height: 200px;
+            }
+        }
+    }
+}
+@media(min-width:1250px){
+    header{
+        display: flex;
+        height: 80px;
+        justify-content: space-between;
+        padding: 0 50px;
+    }
+}
