@@ -5,7 +5,7 @@
         <script  src="https://kit.fontawesome.com/79d9690799.js" crossorigin="anonymous"></script>
         <meta charset= "utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
         <title>Fisheye</title>
@@ -15,7 +15,7 @@
         <div class="wrapper">
 
             <header>
-                <a class="banner" href="index.html" >
+                <a class="banner" href="/index.html">
                     <svg width="150" height="38" viewBox="0 0 150 38" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0)">
                         <path d="M18.5404 0.683594V4.88281H4.73373V13.1836H16.075V17.1875H4.73373V29.3945H0V0.683594H18.5404Z" fill="#911C1C"/>
@@ -37,13 +37,13 @@
             <main>
                 <div class="profilepage">
 
-                <div class=" contact-fixed">Contactez-moi</div>
+                <div class="contact-fixed">Contactez-moi</div>
                         <div class="profile-page__wrapper">
 
 
                             <article class="profile-page__id__container">
                                 <div class="profile-page__id">
-                                    <img src="assets/img/PhotographersIDPhotos/EllieRoseWilkens.jpg">
+                                    <img src="../assets/img/PhotographersIDPhotos/EllieRoseWilkens.jpg">
                                     <div class="text-content">
                                         <h1>£Lola Blabla</h1>
                                         <div class="profile-page__id__detail">
@@ -51,47 +51,50 @@
                                             <p>Just a random phrase</p>
                                         </div>
                                     </div>
-                                    <div class="contact">Contactez-moi</div>
+                                    <div id="test" class="contact">Contactez-moi</div>
 
                                 </div>
 
 
                                 <div class="container__tags profile-page__id__tags">
-                                    <a class="tags" href="index.html"><span>Portrait</span></a>
-                                    <a class="tags" href="index.html"><span>Portrait</span></a>
-                                    <a class="tags" href="index.html"><span>Portrait</span></a>
-                                    <a class="tags" href="index.html"><span>Portrait</span></a>
-                                    <a class="tags" href="index.html"><span>Portrait</span></a>
-                                    <a class="tags" href="index.html"><span>Portrait</span></a>
+                                    <a class="tags" href="#"><span>Portrait</span></a>
+                                    <a class="tags" href="#"><span>Portrait</span></a>
+                                    <a class="tags" href="#"><span>Portrait</span></a>
+                                    <a class="tags" href="#"><span>Portrait</span></a>
+                                    <a class="tags" href="#"><span>Portrait</span></a>
+                                    <a class="tags" href="#"><span>Portrait</span></a>
                                 </div>
                             </article>
                                 <div class="medias__container">
-                                    <div class="medias__search">
+                                    <div class="select__container">
                                         <label>Trier par</label>
-                                        <select name="medias__search">
-                                            <option>Popularité</option>
-                                            <option>Date</option>
-                                            <option>Titre</option>
-                                        </select>
-                                        <div class="selected"></div>
-                                        <div class="select-items">
-                                            <div class="same-as-selected">
-                                            <div>Popularité</div>
-                                            <div>Date</div>
-                                            <div>Titre</div>
-                                        </div>
+                                        <div class="select__choices" style="width:200px">
+                                            <select>
+                                              <option value="0">Popularité</option>
+                                              <option value="1">Date</option>
+                                              <option value="2">Titre</option>
+                                            </select>
+                                          </div>
                                     </div>
                                     <div class="medias__mosaic">
                                         <article>
-                                            <a href="#"><img src="assets/img/PhotographersIDPhotos/EllieRoseWilkens.jpg"></a>
+                                            <a href="#"><img src="../assets/img/PhotographersIDPhotos/EllieRoseWilkens.jpg"></a>
                                             <div class="medias__mosaic__caption">
                                                 <h3>test</h3>
                                                 <span>98<i class="fas fa-heart"></i></span>
                                             </div>
                                         </article>
+
+                                        <article>
+                                            <img src="../assets/img/PhotographersIDPhotos/EllieRoseWilkens.jpg">
+                                            <div class="medias__caption">
+                                                <h3></h3>
+                                                <span></span>
+                                            </div>
+                                        </article>
                                         
                                         <article>
-                                            <img src="assets/img/PhotographersIDPhotos/EllieRoseWilkens.jpg">
+                                            <img src="../assets/img/PhotographersIDPhotos/EllieRoseWilkens.jpg">
                                             <div class="medias__caption">
                                                 <h3></h3>
                                                 <span></span>
@@ -112,7 +115,5 @@
                     </div>
             </main>
         </div>
-        <script src="index.js"></script>
-
     </body>
 </html>

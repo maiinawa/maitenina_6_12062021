@@ -1,6 +1,4 @@
-.wrapper{
-    height: 100%;
-}
+
 header{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -142,8 +140,7 @@ header{
 @media(min-width:1250px){
     header{
         display: flex;
-        height: 80px;
+        margin: 20px 0;
         justify-content: space-between;
-        padding: 0 50px;
     }
 }

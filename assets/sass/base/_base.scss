@@ -11,7 +11,7 @@ html{
 }
 body{
     padding: 35px 19px;
-    max-width: 1400px;
+    max-width: 1300px;
     margin:auto;
     display: flex;
     flex-direction: column;
@@ -19,4 +19,7 @@ body{
 img{
     width: 100%;
     object-fit: cover;
+}
+.wrapper{
+    height: 100%;
 }

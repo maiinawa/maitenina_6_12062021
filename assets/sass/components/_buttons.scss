@@ -40,6 +40,9 @@ ul li{
 @media(min-width:1000px){
     .contact{
         display: block;
+        transform: translate(100px,10px);
+        padding: 20px 15px;
+        height: fit-content;
     }
     .contact-fixed{
         display: none;

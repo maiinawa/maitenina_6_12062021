@@ -42,19 +42,7 @@
     &__container{
         padding: 30PX 0 0 0;
     }
-    &__search{
-        padding: 0 0 30px;
-        & label{
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-        & select{
-            @include btn-static($primaire);
-            margin: 0 15px;
-            padding: 7px 8px;
-            font-size: 0.94rem;
-        }
-    }
+
     &__mosaic{
         & article img{
             border-radius: 5px;
@@ -121,5 +109,111 @@
             }
         }
     }
+}
+@media(min-width:650px){
+    .medias{
+        &__container{
+            padding: 30PX 0 0 0;
+        }
+    
+        &__mosaic{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 70px;
+            row-gap: 20px;
+
+            &__caption{
+                display: flex;
+                justify-content: space-between;
+                margin: 10px 0;
+                & h3{
+                    font-weight: normal;
+                    font-size:1rem;
+                    line-height:1rem;
+                    color: $primaire;
+                    margin: 3px 0;
+                }
+                & span i{
+                    color: $primaire;
+                }
+            }
+        }
+    }
+
+}
+@media(min-width:1000px){
+    .profile-page{
+        &__id{
+
+            &__container{
+                padding: 25px;
+            }
+            & .text-content{
+            }
+            & img{
+                width:188px;
+                height:188px;
+            }
+            & h1{
+                color: #D3573C;
+                font-size: 3rem;
+                margin: 0;
+                font-weight: 400;
+                padding: 10px 0 0 0;
+            }
+            &__action{
+            }
+            &__detail{
+                margin: 0 0 20px;
+                & h2{
+                    font-weight: normal;
+                    font-size:1.5rem;
+                    line-height:1rem;
+                    color: $primaire;
+                    margin: 3px 0 30px;
+                }
+                & p{
+                    font-size:1.1rem;
+                    @include text-font;
+                    color:#757575;
+                    margin: 8px 0;
+                }
+            }
+            &__tags{
+                margin: 0 180px 0 0;
+            }
+        }
+
+    }
+    .medias{
+        &__container{
+            padding: 30PX 0 0 0;
+        }
+    
+        &__mosaic{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            &__caption{
+                display: flex;
+                justify-content: space-between;
+                margin: 5px 0;
+                & h3{
+                    font-weight: normal;
+                    font-size:1rem;
+                    line-height:1rem;
+                    color: $primaire;
+                    margin: 3px 0;
+                    text-transform: capitalize;
+                }
+                & span i{
+                    color: $primaire;
+                }
+            }
+        }
+    }
+    .select__container{
+        margin: 0 0 50px;
+    }
     
 }
+
