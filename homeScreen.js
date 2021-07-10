@@ -1,5 +1,6 @@
-// import { getDatas } from '//index.js'
-// getDatas();
+// const datas = require('./data/data.json');
+// console.log(datas)
+
 // const HomeScreen = () => {
 //     render: () => {
 //         return `<article class="photographer__card">

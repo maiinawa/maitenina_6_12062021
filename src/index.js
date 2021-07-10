@@ -1,3 +1,7 @@
+// const datas = require('./data/data.json');
+// console.log('ekjb')
+// console.log(datas)
+
 (async function getDatas(){
     const medias =  await fetch('/src/data/data.json')
     .then(response => response.json())
@@ -6,11 +10,6 @@
     const photographers = await fetch('/src/data/data.json')
     .then(response => response.json())
     .then(json => json.photographers);
-
-    console.log(medias)
-    console.log(photographers)
-
-
 
 
     const mainGrid = document.querySelector('.photographer__list');
