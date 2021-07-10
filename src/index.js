@@ -1,11 +1,9 @@
-const regeneratorRuntime = require("regenerator-runtime");
-
 (async function getDatas(){
-    const medias =  await fetch('/data/data.json')
+    const medias =  await fetch('/src/data/data.json')
     .then(response => response.json())
     .then(json => json.media);
 
-    const photographers = await fetch('/data/data.json')
+    const photographers = await fetch('/src/data/data.json')
     .then(response => response.json())
     .then(json => json.photographers);
 
