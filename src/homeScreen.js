@@ -3,6 +3,7 @@ const datas = require('./data/data.json');
 const HomeScreen = {
     render: () => {
         const {photographers} = datas
+        
         return photographers.map((item) =>
             `<article class="photographer__card">
                 <a href="./src/pages/profilepage.html">
@@ -17,8 +18,12 @@ const HomeScreen = {
                 </div>
                 </a>
                 <div class="photographer__tags container__tags">
+                    ${tags(item.tags)}
                 </div>
             </article>`).join('')
     }
+}
+const tags = (tags)=>{
+    return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
 }
 export default HomeScreen
