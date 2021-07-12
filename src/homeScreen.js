@@ -6,9 +6,9 @@ const HomeScreen = {
         
         return photographers.map((item) =>
             `<article class="photographer__card">
-                <a href="./src/pages/profilepage.html">
+                <a href="./profile.html">
                 <div class="photographer__id">
-                    <img src="/src/medias/Photographers_ID_Photos/${item.portrait}">
+                    <img src='./medias/photographers_id_photos/${item.portrait}'>
                     <h2>${item.name}</h2>
                 </div>
                 <div class="photographer__detail">
