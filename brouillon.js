@@ -8,3 +8,6 @@ const handleClick = (e) => {
   }
 document.getElementById("test").addEventListener('click',handleClick)
 
+//utiliser les event listenenr pour "changer de page"
+// récupère l'ID
+// afficher les elements comme homescreen via router

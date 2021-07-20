@@ -14,7 +14,28 @@ module.exports= {
             use: {
                 loader: 'babel-loader',    
             }
-        }]    
+        }]  ,
+        rules: [{
+            test: /\.scss?$/,
+            exclude: /node_modules/,
+            use:{
+                loader: "style-loader",
+            }
+        }],
+        rules: [{
+            test: /\.scss?$/,
+            exclude: /node_modules/,
+            use:{
+                loader: "css-loader",
+            }
+        }],
+        rules: [{
+            test: /\.scss?$/,
+            exclude: /node_modules/,
+            use:{
+                loader: "sass-loader",
+            }
+        }],
     },
     devtool: 'source-map',
     devServer: {

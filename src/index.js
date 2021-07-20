@@ -1,24 +1,26 @@
 import HomeScreen from './homeScreen'
 import ProfileScreen from './profileScreen'
-import { parseRequestUrl } from './utils';
-import PageNotFound from './notFound';
 
-const routes ={
-    '/':HomeScreen,
-    'profile/:id':ProfileScreen
+export const main = document.querySelector('.main__wrapper');
+
+
+const routerHomeScreen = () => {
+    main.innerHTML=HomeScreen.render();
+    // const mainProfile = document.querySelector('.profile-page__wrapper');
+    // mainProfile.innerHTML=ProfileScreen.render();
 };
-const router = () => {
-    const request =parseRequestUrl();
-    const parseUrl = 
-    (request.resource ? `/${request.resource}`:'/') + 
-    (request.id ? '/:id': '') + 
-    (request.verb ?`/${request.verb}`:'');
-    const screen =  routes[parseUrl]? routes[parseUrl]: PageNotFound;
-    const main = document.querySelector('.photographer__list');
-    main.innerHTML=screen.render();
 
+const routerProfileScreen = () => {
+    main.innerHTML=ProfileScreen.render();
+}
+window.addEventListener("DOMContentLoaded",routerHomeScreen);
+/////////////
+const cardElement = document.querySelectorAll(".photographer__card")
+console.log(cardElement)
+/////////
 
-};
-window.addEventListener("load",router);
-window.addEventListener("hashchange", router)
+cardElement.forEach((card) => card.addEventListener("click",()=>alert('djbsdnj')));
+
+//trouver comment cibler le chargement d'une page précisement.
+// window.addEventListener("click",routerProfileScreen);
 

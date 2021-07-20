@@ -1,12 +1,12 @@
 const datas = require('./data/data.json');
-
+console.log(datas)
 const HomeScreen = {
     render: () => {
         const {photographers} = datas
         
         return photographers.map((item) =>
             `<article class="photographer__card">
-                <a href="./profile.html">
+                <a class="profile__link" href="./profile.html?profile_id=${item.id}">
                 <div class="photographer__id">
                     <img src='./medias/photographers_id_photos/${item.portrait}'>
                     <h2>${item.name}</h2>
