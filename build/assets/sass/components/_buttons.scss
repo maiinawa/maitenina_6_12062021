@@ -34,6 +34,7 @@ ul li{
 .contact{
     @include btn-static($primaire);
     height: -moz-fit-content;
+    height: fit-content;
     margin: 0;
     display:none;
 }

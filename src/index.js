@@ -10,6 +10,7 @@ const routerHomeScreen = () => {
 };
 
 const routerProfileScreen = () => {
+    
     mainProfile.innerHTML=ProfileScreen.render();
 }
 window.addEventListener("DOMContentLoaded",routerHomeScreen);

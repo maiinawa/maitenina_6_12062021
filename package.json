@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "server": "webpack serve"
+    "server": "webpack serve",
+    "sass":"sass --watch ./build/assets/sass/main.scss:./build/assets/css/style.css"
   },
   "keywords": [],
   "author": "",

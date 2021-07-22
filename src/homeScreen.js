@@ -1,5 +1,4 @@
 const datas = require('./data/data.json');
-console.log(datas)
 const HomeScreen = {
     render: () => {
         const {photographers} = datas

@@ -68,6 +68,7 @@ ul li:hover {
   width: -moz-fit-content;
   font-size: 1.1rem;
   height: -moz-fit-content;
+  height: fit-content;
   margin: 0;
   display: none;
 }
@@ -77,6 +78,7 @@ ul li:hover {
     display: block;
     transform: translate(100px, 10px);
     padding: 20px 15px;
+    height: fit-content;
   }
 
   .contact-fixed {

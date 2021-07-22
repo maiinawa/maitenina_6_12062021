@@ -23,7 +23,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 const datas = __webpack_require__(/*! ./data/data.json */ "./src/data/data.json");
-console.log(datas)
 const HomeScreen = {
     render: () => {
         const {photographers} = datas
@@ -92,23 +91,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _params__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./params */ "./src/params.js");
 
-// import { main } from '.';
 
 const datas = __webpack_require__(/*! ./data/data.json */ "./src/data/data.json");
 const ProfileScreen = {
     render : () => {
-        // const profileWrap = document.createElement('div')
-        // main.appendChild(profileWrap)
         const {photographers} = datas;
-
         const theID = (0,_params__WEBPACK_IMPORTED_MODULE_0__.default)('profile_id')
         const profileWanted = photographers.filter(photographer => photographer.id == theID)
-        console.log(profileWanted)
         const tags = (tags)=>{
             return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
         }
-
-
+        const {media} = datas;
+        const galleryWanted = media.filter(photographer => photographer.photographerId == theID)
+        console.log(galleryWanted)
+        const gallery = (medias) => {
+            return `${medias.map((item)=>{
+                return `  <article>
+                            <img src="./medias/ID${item.photographerId}/${item.image}">
+                            <div class="medias__caption">
+                                <h3>${item.title}</h3>
+                                <span>${item.likes}</span>
+                            </div>
+                           </article>`}).join(' ')}`        }
+        const theGallery = gallery(galleryWanted)
         return profileWanted.map((item) =>
                     `<article class="profile-page__id__container">
                         <div class="profile-page__id">
@@ -130,16 +135,19 @@ const ProfileScreen = {
                         </div>
                 </article>
                 <div class="medias__container">
-                    <div class="select__container">
-                        <label>Trier par</label>
-                        <div class="select__choices" style="width:200px">
-                            <select>
-                            <option value="0">Popularité</option>
-                            <option value="1">Date</option>
-                            <option value="2">Titre</option>
-                            </select>
-                        </div>
-                    </div>
+                   <div class="select__container">
+                       <label>Trier par</label>
+                       <div class="select__choices" style="width:200px">
+                           <select>
+                           <option value="0">Popularité</option>
+                           <option value="1">Date</option>
+                           <option value="2">Titre</option>
+                           </select>
+                       </div>
+                   </div>
+                </div>
+                <div class="medias__mosaic">
+                    ${theGallery}
                 </div>`).join('')
     }
 }
@@ -227,6 +235,7 @@ const routerHomeScreen = () => {
 };
 
 const routerProfileScreen = () => {
+    
     mainProfile.innerHTML=_profileScreen__WEBPACK_IMPORTED_MODULE_1__.default.render();
 }
 window.addEventListener("DOMContentLoaded",routerHomeScreen);
