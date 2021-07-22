@@ -27,6 +27,9 @@ console.log(datas)
 const HomeScreen = {
     render: () => {
         const {photographers} = datas
+        const tags = (tags)=>{
+            return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
+        }
         
         return photographers.map((item) =>
             `<article class="photographer__card">
@@ -45,52 +48,14 @@ const HomeScreen = {
                     ${tags(item.tags)}
                 </div>
             </article>`).join('')
+
     }
 }
-const tags = (tags)=>{
-    return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
-}
+
+// const tags = (tags)=>{
+//     return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
+// }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeScreen);
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "main": () => (/* binding */ main)
-/* harmony export */ });
-/* harmony import */ var _homeScreen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homeScreen */ "./src/homeScreen.js");
-/* harmony import */ var _profileScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profileScreen */ "./src/profileScreen.js");
-
-
-
-const main = document.querySelector('.main__wrapper');
-
-
-const routerHomeScreen = () => {
-    main.innerHTML=_homeScreen__WEBPACK_IMPORTED_MODULE_0__.default.render();
-    // const mainProfile = document.querySelector('.profile-page__wrapper');
-    // mainProfile.innerHTML=ProfileScreen.render();
-};
-
-const routerProfileScreen = () => {
-    main.innerHTML=_profileScreen__WEBPACK_IMPORTED_MODULE_1__.default.render();
-}
-window.addEventListener("DOMContentLoaded",routerHomeScreen);
-const cardElement = document.querySelectorAll(".photographer__card")
-console.log(cardElement)
-
-cardElement.forEach((card) => card.addEventListener("click",()=>alert('djbsdnj')));
-
-//trouver comment cibler le chargement d'une page précisement.
-// window.addEventListener("click",routerProfileScreen);
-
-
 
 /***/ }),
 
@@ -126,24 +91,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _params__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./params */ "./src/params.js");
-/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! . */ "./src/index.js");
 
-
+// import { main } from '.';
 
 const datas = __webpack_require__(/*! ./data/data.json */ "./src/data/data.json");
 const ProfileScreen = {
-        
     render : () => {
-        const profileWrap = document.createElement('div')
-        ___WEBPACK_IMPORTED_MODULE_1__.main.appendChild(profileWrap)
+        // const profileWrap = document.createElement('div')
+        // main.appendChild(profileWrap)
         const {photographers} = datas;
-        alert("onjfn")
 
         const theID = (0,_params__WEBPACK_IMPORTED_MODULE_0__.default)('profile_id')
         const profileWanted = photographers.filter(photographer => photographer.id == theID)
         console.log(profileWanted)
+        const tags = (tags)=>{
+            return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
+        }
 
-                return profileWanted.map((item) =>
+
+        return profileWanted.map((item) =>
                     `<article class="profile-page__id__container">
                         <div class="profile-page__id">
                             <img src="./medias/photographers_id_photos/${item.portrait}">
@@ -175,13 +141,9 @@ const ProfileScreen = {
                         </div>
                     </div>
                 </div>`).join('')
-                }
-            }
-            const tags = (tags)=>{
-                return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
-            }
-
-        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileScreen);
+    }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileScreen);
 
 /***/ })
 
@@ -241,12 +203,39 @@ const ProfileScreen = {
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "main": () => (/* binding */ main)
+/* harmony export */ });
+/* harmony import */ var _homeScreen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homeScreen */ "./src/homeScreen.js");
+/* harmony import */ var _profileScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profileScreen */ "./src/profileScreen.js");
+
+
+
+const main = document.querySelector('.photographer__list');
+const mainProfile = document.querySelector('.profile-page__wrapper')
+
+
+const routerHomeScreen = () => {
+    main.innerHTML=_homeScreen__WEBPACK_IMPORTED_MODULE_0__.default.render();
+};
+
+const routerProfileScreen = () => {
+    mainProfile.innerHTML=_profileScreen__WEBPACK_IMPORTED_MODULE_1__.default.render();
+}
+window.addEventListener("DOMContentLoaded",routerHomeScreen);
+
+window.addEventListener("DOMContentLoaded",routerProfileScreen);
+
+
+})();
+
 /******/ })()
 ;
 //# sourceMappingURL=bundle.js.map

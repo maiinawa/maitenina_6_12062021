@@ -3,6 +3,9 @@ console.log(datas)
 const HomeScreen = {
     render: () => {
         const {photographers} = datas
+        const tags = (tags)=>{
+            return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
+        }
         
         return photographers.map((item) =>
             `<article class="photographer__card">
@@ -21,9 +24,11 @@ const HomeScreen = {
                     ${tags(item.tags)}
                 </div>
             </article>`).join('')
+
     }
 }
-const tags = (tags)=>{
-    return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
-}
+
+// const tags = (tags)=>{
+//     return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
+// }
 export default HomeScreen

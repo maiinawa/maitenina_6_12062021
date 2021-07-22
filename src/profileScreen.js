@@ -1,20 +1,22 @@
 import  getParamValue from './params';
-import { main } from '.';
+// import { main } from '.';
 
 const datas = require('./data/data.json');
 const ProfileScreen = {
-        
     render : () => {
-        const profileWrap = document.createElement('div')
-        main.appendChild(profileWrap)
+        // const profileWrap = document.createElement('div')
+        // main.appendChild(profileWrap)
         const {photographers} = datas;
-        alert("onjfn")
 
         const theID = getParamValue('profile_id')
         const profileWanted = photographers.filter(photographer => photographer.id == theID)
         console.log(profileWanted)
+        const tags = (tags)=>{
+            return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
+        }
 
-                return profileWanted.map((item) =>
+
+        return profileWanted.map((item) =>
                     `<article class="profile-page__id__container">
                         <div class="profile-page__id">
                             <img src="./medias/photographers_id_photos/${item.portrait}">
@@ -46,10 +48,6 @@ const ProfileScreen = {
                         </div>
                     </div>
                 </div>`).join('')
-                }
-            }
-            const tags = (tags)=>{
-                return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
-            }
-
-        export default ProfileScreen
+    }
+}
+export default ProfileScreen
