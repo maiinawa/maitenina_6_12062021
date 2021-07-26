@@ -27,7 +27,4 @@ const HomeScreen = {
     }
 }
 
-// const tags = (tags)=>{
-//     return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
-// }
 export default HomeScreen

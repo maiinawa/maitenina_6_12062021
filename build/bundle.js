@@ -51,10 +51,75 @@ const HomeScreen = {
     }
 }
 
-// const tags = (tags)=>{
-//     return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
-// }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeScreen);
+
+/***/ }),
+
+/***/ "./src/mediasRendeeer.js":
+/*!*******************************!*\
+  !*** ./src/mediasRendeeer.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const datas = __webpack_require__(/*! ./data/data.json */ "./src/data/data.json");
+
+function Videos()
+{
+    this.type = type
+}
+function Image()
+{
+    this.type = type
+}
+
+class Photo {
+    photo = {}
+    constructor(photo) {
+        this.photo = photo
+    }
+    render () {
+        console.log("to do afficher une photo " + JSON.stringify(this.photo))
+    }
+}
+class Video {
+    video = {}
+    constructor(video) {
+        this.video = video
+    }
+    render () {
+        console.log("to do afficher une video " + JSON.stringify(this.video))
+    }
+}
+
+class MediaFactory {
+    getMedias (media)  {
+        if(media){
+            if (media.image) {
+                const photo = new Photo(media)
+                return photo.render()
+            }
+            else if (media.video) {
+                const video = new Video(media)
+                return video.render()
+            }
+        }
+    }
+}
+const MediaEngine = {
+    render: () => {
+        const {media} = datas
+        console.log('ibvdfi')
+        return media.map((item) => {
+            const mediaFactory = new MediaFactory()
+            mediaFactory.getMedias(item)
+        })
+    }
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MediaEngine);
 
 /***/ }),
 
@@ -95,6 +160,7 @@ __webpack_require__.r(__webpack_exports__);
 const datas = __webpack_require__(/*! ./data/data.json */ "./src/data/data.json");
 const ProfileScreen = {
     render : () => {
+
         const {photographers} = datas;
         const theID = (0,_params__WEBPACK_IMPORTED_MODULE_0__.default)('profile_id')
         const profileWanted = photographers.filter(photographer => photographer.id == theID)
@@ -103,17 +169,17 @@ const ProfileScreen = {
         }
         const {media} = datas;
         const galleryWanted = media.filter(photographer => photographer.photographerId == theID)
-        console.log(galleryWanted)
-        const gallery = (medias) => {
-            return `${medias.map((item)=>{
-                return `  <article>
-                            <img src="./medias/ID${item.photographerId}/${item.image}">
-                            <div class="medias__caption">
-                                <h3>${item.title}</h3>
-                                <span>${item.likes}</span>
-                            </div>
-                           </article>`}).join(' ')}`        }
-        const theGallery = gallery(galleryWanted)
+        // console.log(galleryWanted)
+        // const gallery = (medias) => {
+        //     return `${medias.map((item)=>{
+        //         return `  <article>
+        //                     <img src="./medias/ID${item.photographerId}/${item.image}">
+        //                     <div class="medias__caption">
+        //                         <h3>${item.title}</h3>
+        //                         <span>${item.likes}</span>
+        //                     </div>
+        //                    </article>`}).join(' ')}`        }
+        // const theGallery = gallery(galleryWanted)
         return profileWanted.map((item) =>
                     `<article class="profile-page__id__container">
                         <div class="profile-page__id">
@@ -128,7 +194,6 @@ const ProfileScreen = {
                             <div id="test" class="contact">Contactez-moi</div>
 
                         </div>
-
 
                         <div class="container__tags profile-page__id__tags">
                         ${tags(item.tags)}
@@ -147,7 +212,6 @@ const ProfileScreen = {
                    </div>
                 </div>
                 <div class="medias__mosaic">
-                    ${theGallery}
                 </div>`).join('')
     }
 }
@@ -222,7 +286,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "main": () => (/* binding */ main)
 /* harmony export */ });
 /* harmony import */ var _homeScreen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homeScreen */ "./src/homeScreen.js");
-/* harmony import */ var _profileScreen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profileScreen */ "./src/profileScreen.js");
+/* harmony import */ var _mediasRendeeer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mediasRendeeer */ "./src/mediasRendeeer.js");
+/* harmony import */ var _profileScreen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./profileScreen */ "./src/profileScreen.js");
+
+
 
 
 
@@ -231,16 +298,26 @@ const mainProfile = document.querySelector('.profile-page__wrapper')
 
 
 const routerHomeScreen = () => {
-    main.innerHTML=_homeScreen__WEBPACK_IMPORTED_MODULE_0__.default.render();
+    if(main){
+        main.innerHTML=_homeScreen__WEBPACK_IMPORTED_MODULE_0__.default.render();
+    }
 };
 
 const routerProfileScreen = () => {
-    
-    mainProfile.innerHTML=_profileScreen__WEBPACK_IMPORTED_MODULE_1__.default.render();
+    if(mainProfile){
+        mainProfile.innerHTML=_profileScreen__WEBPACK_IMPORTED_MODULE_2__.default.render();
+
+    }
 }
+const routerMedia = () => {
+        mainProfile.innerHTML=_mediasRendeeer__WEBPACK_IMPORTED_MODULE_1__.default.render();
+    }
+
 window.addEventListener("DOMContentLoaded",routerHomeScreen);
 
 window.addEventListener("DOMContentLoaded",routerProfileScreen);
+window.addEventListener("DOMContentLoaded",routerMedia);
+
 
 
 })();

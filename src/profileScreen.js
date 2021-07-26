@@ -3,6 +3,7 @@ import  getParamValue from './params';
 const datas = require('./data/data.json');
 const ProfileScreen = {
     render : () => {
+
         const {photographers} = datas;
         const theID = getParamValue('profile_id')
         const profileWanted = photographers.filter(photographer => photographer.id == theID)
@@ -11,17 +12,17 @@ const ProfileScreen = {
         }
         const {media} = datas;
         const galleryWanted = media.filter(photographer => photographer.photographerId == theID)
-        console.log(galleryWanted)
-        const gallery = (medias) => {
-            return `${medias.map((item)=>{
-                return `  <article>
-                            <img src="./medias/ID${item.photographerId}/${item.image}">
-                            <div class="medias__caption">
-                                <h3>${item.title}</h3>
-                                <span>${item.likes}</span>
-                            </div>
-                           </article>`}).join(' ')}`        }
-        const theGallery = gallery(galleryWanted)
+        // console.log(galleryWanted)
+        // const gallery = (medias) => {
+        //     return `${medias.map((item)=>{
+        //         return `  <article>
+        //                     <img src="./medias/ID${item.photographerId}/${item.image}">
+        //                     <div class="medias__caption">
+        //                         <h3>${item.title}</h3>
+        //                         <span>${item.likes}</span>
+        //                     </div>
+        //                    </article>`}).join(' ')}`        }
+        // const theGallery = gallery(galleryWanted)
         return profileWanted.map((item) =>
                     `<article class="profile-page__id__container">
                         <div class="profile-page__id">
@@ -36,7 +37,6 @@ const ProfileScreen = {
                             <div id="test" class="contact">Contactez-moi</div>
 
                         </div>
-
 
                         <div class="container__tags profile-page__id__tags">
                         ${tags(item.tags)}
@@ -55,7 +55,6 @@ const ProfileScreen = {
                    </div>
                 </div>
                 <div class="medias__mosaic">
-                    ${theGallery}
                 </div>`).join('')
     }
 }
