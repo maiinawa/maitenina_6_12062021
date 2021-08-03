@@ -1,28 +1,20 @@
 import  getParamValue from './params';
+import MediaEngine from './mediasRendeeer';
 
 const datas = require('./data/data.json');
 const ProfileScreen = {
     render : () => {
-
         const {photographers} = datas;
-        const theID = getParamValue('profile_id')
+        const theID = getParamValue('user')
         const profileWanted = photographers.filter(photographer => photographer.id == theID)
         const tags = (tags)=>{
             return`${tags.map((item)=>{return `<a class="tags" href="index.html"><span>${item}</span></a>`}).join('')}`
         }
         const {media} = datas;
         const galleryWanted = media.filter(photographer => photographer.photographerId == theID)
-        // console.log(galleryWanted)
-        // const gallery = (medias) => {
-        //     return `${medias.map((item)=>{
-        //         return `  <article>
-        //                     <img src="./medias/ID${item.photographerId}/${item.image}">
-        //                     <div class="medias__caption">
-        //                         <h3>${item.title}</h3>
-        //                         <span>${item.likes}</span>
-        //                     </div>
-        //                    </article>`}).join(' ')}`        }
-        // const theGallery = gallery(galleryWanted)
+        //mosaic gallery
+        MediaEngine.render(galleryWanted)
+        //profile render
         return profileWanted.map((item) =>
                     `<article class="profile-page__id__container">
                         <div class="profile-page__id">
@@ -53,8 +45,6 @@ const ProfileScreen = {
                            </select>
                        </div>
                    </div>
-                </div>
-                <div class="medias__mosaic">
                 </div>`).join('')
     }
 }

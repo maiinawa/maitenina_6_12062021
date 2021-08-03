@@ -1,22 +1,24 @@
-const datas = require('./data/data.json');
-
-function Videos()
-{
-    this.type = type
-}
-function Image()
-{
-    this.type = type
-}
-
 class Photo {
     photo = {}
     constructor(photo) {
         this.photo = photo
     }
     render () {
-        console.log("to do afficher une photo " + JSON.stringify(this.photo))
-    }
+        const test = this.photo
+        const container = document.querySelector('.medias__mosaic')
+        if (container){
+            container.insertAdjacentHTML('afterbegin',`<article>
+                <img src="./medias/ID${test.photographerId}/${test.image}">
+                <div class="medias__caption">
+                    <h3>${test.title}</h3>
+                    <div class="ratings">
+                        <span>${test.likes}</span>
+                        <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </article>`);
+        }
+    }   
 }
 class Video {
     video = {}
@@ -24,7 +26,21 @@ class Video {
         this.video = video
     }
     render () {
-        console.log("to do afficher une video " + JSON.stringify(this.video))
+        const test = this.video
+        const container = document.querySelector('.medias__mosaic')
+        if (container){
+            container.insertAdjacentHTML('afterbegin',`<article>
+            <video src="./medias/ID${test.photographerId}/${test.video}" type="video/mp4">
+            </video>
+            <div class="medias__caption">
+                <h3>${test.title}</h3>
+                <div class="ratings">
+                    <span>${test.likes}</span>
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </article>`);
+        }    
     }
 }
 
@@ -43,12 +59,11 @@ class MediaFactory {
     }
 }
 const MediaEngine = {
-    render: () => {
-        const {media} = datas
-        console.log('ibvdfi')
-        return media.map((item) => {
+    render: (gallery) => {
+        return gallery.map((item) => {
             const mediaFactory = new MediaFactory()
             mediaFactory.getMedias(item)
+
         })
     }
 }

@@ -1,10 +1,11 @@
 import HomeScreen from './homeScreen'
-import MediaEngine from './mediasRendeeer';
 import ProfileScreen from './profileScreen'
+import likeCount from './likeCount'
 
 
-export const main = document.querySelector('.photographer__list');
+const main = document.querySelector('.photographer__list');
 const mainProfile = document.querySelector('.profile-page__wrapper')
+const heart = document.getElementsByClassName('.fa-heart')
 
 
 const routerHomeScreen = () => {
@@ -12,20 +13,13 @@ const routerHomeScreen = () => {
         main.innerHTML=HomeScreen.render();
     }
 };
-
 const routerProfileScreen = () => {
     if(mainProfile){
         mainProfile.innerHTML=ProfileScreen.render();
 
     }
 }
-const routerMedia = () => {
-        mainProfile.innerHTML=MediaEngine.render();
-    }
 
 window.addEventListener("DOMContentLoaded",routerHomeScreen);
-
 window.addEventListener("DOMContentLoaded",routerProfileScreen);
-window.addEventListener("DOMContentLoaded",routerMedia);
-
-
+heart.forEach((item)=>item.addEventListener("click",likeCount));

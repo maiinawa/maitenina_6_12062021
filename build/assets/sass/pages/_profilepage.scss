@@ -44,10 +44,11 @@
     }
 
     &__mosaic{
-        & article img{
+        & article img, & article video{
             border-radius: 5px;
-            height: 190px;
+            height: 250px;
         }
+    }
         &__caption{
             display: flex;
             justify-content: space-between;
@@ -56,14 +57,9 @@
                 font-weight: normal;
                 font-size:1rem;
                 line-height:1rem;
-                color: $primaire;
                 margin: 3px 0;
             }
-            & span i{
-                color: $primaire;
-            }
         }
-    }
 }
 @media(min-width:500px){
     .profile-page{

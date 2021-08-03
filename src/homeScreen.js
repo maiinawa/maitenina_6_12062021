@@ -8,7 +8,7 @@ const HomeScreen = {
         
         return photographers.map((item) =>
             `<article class="photographer__card">
-                <a class="profile__link" href="./profile.html?profile_id=${item.id}">
+                <a class="profile__link" href="./profile.html?user=${item.id}">
                 <div class="photographer__id">
                     <img src='./medias/photographers_id_photos/${item.portrait}'>
                     <h2>${item.name}</h2>

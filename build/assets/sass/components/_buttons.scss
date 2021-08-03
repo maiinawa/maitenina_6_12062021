@@ -60,3 +60,13 @@ ul li{
     left:50%;
     transform: translateY(-50%) translateX(-50%);
 }
+
+.ratings{
+    display: flex;
+    justify-content: flex-end;
+    & i {
+        color: $primaire;
+        font-size: 1.2rem;
+        margin-left: 10px;
+    }
+}
