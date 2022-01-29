@@ -1,0 +1,57 @@
+.modale{
+    background-color: white;
+    width: 90%;
+    position: absolute;
+    top: 80px;
+    margin: 0 auto;
+
+    &__slider{
+        padding: 40px 0;
+        display: grid;
+        grid-template-areas:
+        "left media right";
+
+        &__title{
+            font-weight: normal;
+            font-size: 1.5rem;
+            line-height: 1rem;
+            color: #901C1C;
+            margin: 20px 0 0 0;
+    
+        }
+        & img{
+            grid-area: media;
+            height: 600px;
+            margin: auto;
+            border-radius: 5px
+        };
+        & video{
+            grid-area: media;
+            margin: auto;
+            border-radius: 5px
+        };
+        & .close-btn{
+            font-size: 50px;
+            padding: 0 40px;
+            position: absolute;
+            right: 0;
+            color: $primaire;
+        }
+        & .arrow{
+            font-size: 50px;
+            padding: 0 40px;
+            color: $primaire;
+
+        }
+        & .arrow-left{
+            grid-area: left;
+            margin: auto;
+
+        }
+        & .arrow-right{
+            grid-area: right;
+            margin: auto;
+        }
+
+    }
+}

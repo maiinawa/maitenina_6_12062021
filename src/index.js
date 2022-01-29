@@ -1,6 +1,5 @@
 import HomeScreen from './homeScreen'
 import ProfileScreen from './profileScreen'
-import likeCount from './likeCount'
 
 
 const main = document.querySelector('.photographer__list');
@@ -22,4 +21,5 @@ const routerProfileScreen = () => {
 
 window.addEventListener("DOMContentLoaded",routerHomeScreen);
 window.addEventListener("DOMContentLoaded",routerProfileScreen);
-heart.forEach((item)=>item.addEventListener("click",likeCount));
+function openModalMedia() {
+}

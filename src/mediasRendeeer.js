@@ -6,19 +6,50 @@ class Photo {
     render () {
         const test = this.photo
         const container = document.querySelector('.medias__mosaic')
+        const wrapper =  document.querySelector('.wrapper')
+
         if (container){
-            container.insertAdjacentHTML('afterbegin',`<article>
-                <img src="./medias/ID${test.photographerId}/${test.image}">
+
+            //affiche les cartes images
+            container.insertAdjacentHTML('afterbegin',`<article class="medias-card" onclick="openModalMedia()">
+                <img src="./medias/ID${test.photographerId}/${test.image}" >
                 <div class="medias__caption">
                     <h3>${test.title}</h3>
-                    <div class="ratings">
+                    <div class="ratings ">
                         <span>${test.likes}</span>
                         <i class="fas fa-heart"></i>
                     </div>
                 </div>
             </article>`);
+
+            //affiche la modale
+            document.querySelector('.medias-card').onclick=function openModalMedia(){
+                console.log('modal image');
+                const modalMedia = document.createElement('div')
+                modalMedia.className="modale"
+                wrapper.appendChild(modalMedia)
+                modalMedia.insertAdjacentHTML('afterbegin',`
+                    <div class="modale__medias">
+                        <div class="modale__slider">
+                            <i class="fas fa-times close-btn"></i>
+                            <i class="fas fa-chevron-left arrow arrow-left"></i>
+                            <div>
+                                <img src="./medias/ID${test.photographerId}/${test.image}" >
+                                <h3 class="modale__slider__title">${test.title}</h3>
+
+                            </div>
+                            <i class="fas fa-chevron-right arrow arrow-right"></i>
+                        </div>
+
+                    </div>
+                `);
+
+            }
         }
     }   
+    modal (){
+
+    }
 }
 class Video {
     video = {}
@@ -28,8 +59,11 @@ class Video {
     render () {
         const test = this.video
         const container = document.querySelector('.medias__mosaic')
+        const wrapper =  document.querySelector('.wrapper')
+
+
         if (container){
-            container.insertAdjacentHTML('afterbegin',`<article>
+            container.insertAdjacentHTML('afterbegin',`<article class="medias-card" onclick="openModalMedia()">
             <video src="./medias/ID${test.photographerId}/${test.video}" type="video/mp4">
             </video>
             <div class="medias__caption">
@@ -41,6 +75,30 @@ class Video {
             </div>
         </article>`);
         }    
+            document.querySelector('.medias-card').onclick=function openModalMedia(){
+                console.log('modal image');
+                const modalMedia = document.createElement('div')
+                modalMedia.className="modale"
+                wrapper.appendChild(modalMedia)
+                modalMedia.insertAdjacentHTML('afterbegin',`
+                    <div class="modale__medias">
+                        <div class="modale__slider">
+                            <i class="fas fa-times close-btn"></i>
+                            <i class="fas fa-chevron-left arrow arrow-left"></i>
+                            <div>
+                            <video controls>
+                            <source src="./medias/ID${test.photographerId}/${test.video}" type="video/mp4">
+                          </video>
+                            <h3 class="modale__slider__title">${test.title}</h3>
+
+                            </div>
+                            <i class="fas fa-chevron-right arrow arrow-right"></i>
+                        </div>
+
+                    </div>
+                `);
+
+            }
     }
 }
 
@@ -67,4 +125,5 @@ const MediaEngine = {
         })
     }
 }
+
 export default MediaEngine

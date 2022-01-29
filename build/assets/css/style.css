@@ -177,6 +177,57 @@ ul li:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+.modale {
+  background-color: white;
+  width: 90%;
+  position: absolute;
+  top: 80px;
+  margin: 0 auto;
+}
+.modale__slider {
+  padding: 40px 0;
+  display: grid;
+  grid-template-areas: "left media right";
+}
+.modale__slider__title {
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 1rem;
+  color: #901C1C;
+  margin: 20px 0 0 0;
+}
+.modale__slider img {
+  grid-area: media;
+  height: 600px;
+  margin: auto;
+  border-radius: 5px;
+}
+.modale__slider video {
+  grid-area: media;
+  margin: auto;
+  border-radius: 5px;
+}
+.modale__slider .close-btn {
+  font-size: 50px;
+  padding: 0 40px;
+  position: absolute;
+  right: 0;
+  color: #901C1C;
+}
+.modale__slider .arrow {
+  font-size: 50px;
+  padding: 0 40px;
+  color: #901C1C;
+}
+.modale__slider .arrow-left {
+  grid-area: left;
+  margin: auto;
+}
+.modale__slider .arrow-right {
+  grid-area: right;
+  margin: auto;
+}
+
 * {
   margin: 0;
   padding: 0;
